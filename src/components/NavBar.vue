@@ -1,6 +1,13 @@
 <script setup lang="ts">
+import { useActivePageStore } from "@/stores/activePage";
 
-const links = ['Home', 'Algorithms', 'Visualization']
+const activePage = useActivePageStore();
+
+const links = [
+  { text: "Home", url: "index.html" },
+  { text: "Algorithms", url: "algorithms.html" },
+  { text: "Visualization", url: "visualization.html" },
+];
 </script>
 
 <template>
@@ -8,8 +15,14 @@ const links = ['Home', 'Algorithms', 'Visualization']
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <a class="navbar-brand" href="#">Sorting Algorithms</a>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li v-for="link in links" class="nav-item">
-          <a class="nav-link" href="#">{{ link }}</a>
+        <li v-for="(link, index) in links" class="nav-item" :key="index">
+          <a
+            class="nav-link"
+            :href="link.url"
+            :title="`This link goes to the ${link.text} page`"
+            @click="activePage.changePage(index)"
+            >{{ link.text }}</a
+          >
         </li>
       </ul>
     </div>
