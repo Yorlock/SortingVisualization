@@ -3,10 +3,13 @@ import { defineStore } from "pinia";
 export const useNavBarStore = defineStore("navBar", {
   state: () => ({
     activePage: 0,
-    isDarkNavbar: false
+    isDarkNavbar: false,
   }),
   getters: {
-    //getActivePage: (state) => state.activePage,
+    getNavBarStyle: (state) =>
+      state.isDarkNavbar
+        ? ["navbar-dark", "bg-dark"]
+        : ["navbar-light", "bg-light"],
   },
   actions: {
     changePage(newPage: number) {
