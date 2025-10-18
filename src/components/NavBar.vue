@@ -1,14 +1,13 @@
 <script setup lang="ts">
 import { useNavBarStore } from "@/stores/navBar";
 import NavBarLink from "@/components/NavBarLink.vue";
+import type { Page } from '@/types/Page'
 
 const navBarStore = useNavBarStore();
 
-const pages = [
-  { text: "Home", url: "index.html" },
-  { text: "Algorithms", url: "algorithms.html" },
-  { text: "Visualization", url: "visualization.html" },
-];
+const props = defineProps<{
+  'pages': Page[]
+}>()
 </script>
 
 <template>

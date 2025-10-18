@@ -1,10 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-
-interface Page {
-  text: string
-  url: string
-}
+import type { Page } from '@/types/Page'
 
 const props = defineProps<{
   'page': Page,

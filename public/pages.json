@@ -1,0 +1,5 @@
+[
+  { "text": "Home", "url": "index.html" },
+  { "text": "Algorithms", "url": "algorithms.html" },
+  { "text": "Visualization", "url": "visualization.html" }
+]
