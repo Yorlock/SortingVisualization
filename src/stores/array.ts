@@ -28,7 +28,7 @@ export const useArrayStore = defineStore("array", {
       localStorage.setItem("numbers", JSON.stringify(this.numbers));
     },
     sortArray() {
-      this.numbers.sort();
+      this.numbers.sort((a: number, b: number) => a - b);
       localStorage.setItem("numbers", JSON.stringify(this.numbers));
     },
   },
